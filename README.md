@@ -1,8 +1,9 @@
-# React + Vite
+# **Dynamic To-Do List Application**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic to-do list application built with React, featuring three sections: Pending, In Progress, and Completed. Users can add tasks, move tasks between sections, and use drag-and-drop functionality.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Features
+Pending Section: Contains newly added tasks. Each task has a button to move it to the In Progress section.
+In Progress Section: Contains tasks currently being worked on. Each task has a button to move it to the Completed section.
+Completed Section: Contains completed tasks with a timestamp in the format "DD/MM/YY, HH".
