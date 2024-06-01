@@ -13,9 +13,12 @@ const TaskList = ({ taskList, title, onMove }) => {
   
   return (
     <div className="col" style={style}>
+      
       <h3>{title}</h3>
+     
       {taskList.map((task, id ) => (
-        <Task key={id} task={task} onMove={onMove} />
+        
+        <Task key={id} task={task} onMove={onMove} />//key={id} is added to remove the warning 
       ))}
     </div>
   );

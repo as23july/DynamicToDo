@@ -5,12 +5,15 @@ import Headding from "./components/headding/Headding";
 import TaskList from "./components/TaskList";
 
 function App() {
+  // State to manage tasks in three categories: pending, inProgress, and completed
   const [tasks, setTasks] = useState("");
   const [desc, setDesc] = useState("");
   const [taskList, setTaskList] = useState([]);
 
+  // Function to add a new task to the pending list
   const handleSubmit = (e) => {
     e.preventDefault();
+    // If input is null, do nothing
     if (!tasks) return alert("Please Enter Task");
     const newtask = {
       tasks,
@@ -26,6 +29,7 @@ function App() {
     setDesc("");
   };
 
+  // Function to move a task from one category to another
   const moveTask = (movedTask) => {
     const updatedTask = taskList.map((task) => {
       if (task.id === movedTask.id) {
@@ -40,6 +44,7 @@ function App() {
     setTaskList(updatedTask);
   };
 
+  // If the task is moved to a different location, update the state
   const pendingTask = taskList.filter((task) => task.status === "pending");
   const progressTask = taskList.filter((task) => task.status === "progress");
   const completedTask = taskList.filter((task) => task.status === "completed");
@@ -57,7 +62,7 @@ function App() {
                 className=" form-control addtask"
                 placeholder="Enter Task"
                 value={tasks}
-                onChange={(e) => setTasks(e.target.value)}
+                onChange={(e) => setTasks(e.target.value)} //When the input value changes, the state is updated
               />
               <input
                 type="text"
@@ -73,10 +78,6 @@ function App() {
           </form>
           <div className="container text-center">
             <div className="row">
-              {/* <ActiveTask taskList={taskList} />
-
-              <Inprogress />
-              <Completed /> */}
               <TaskList taskList={pendingTask} title="Task" onMove={moveTask} />
               <TaskList
                 taskList={progressTask}
